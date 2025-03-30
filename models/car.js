@@ -1,16 +1,12 @@
 import mongoose from "mongoose";
 
 const carSchema = mongoose.Schema({
-  make: {
-    type: String,
-    required: true,
-  },
-  model: {
-    type: String,
-    required: true,
-  },
+  make: String,
+  model: String,
+  year: Number,
+  isElectric: Boolean,
 });
 
-const car = mongoose.model("car", carSchema);
+const Car = mongoose.model("car", carSchema);
 
-export default car;
+export default Car;

@@ -1,16 +1,26 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
-import "./db/connection.js";
-import carsRouter from "./controllers/cars.js";
-
+import db from "./db/connection.js";
+import MongoStore from "connect-mongo";
+import methodOverride from "method-override";
+import logger from "morgan";
+import carRoutes from "./controllers/cars.js";
+import connectMongo from "connect-mongo";
 const PORT = process.env.PORT || "3000";
 const app = express();
 
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
+app.use(logger("dev"));
 app.set("view engine", "ejs");
 
-app.use("/", carsRouter);
+app.get("/", (req, res) => {
+  res.redirect("/cars");
+});
 
-app.get("/new", (req, res) => {});
+app.use("/cars", carRoutes);
 
 app.listen(PORT, () => {
-  console.log(`App is running on port: ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

@@ -7,13 +7,21 @@
   </head>
   <body>
     <h1>Create a New Car!</h1>
-    <form action="/new" method="POST">
+    <form action="/cars" method="POST">
       <label for="make">Make:</label>
       <input type="text" name="make" id="make" />
 
       <label for="model">Model:</label>
       <input type="text" name="model" id="model" />
+
+      <label for="year">Year:</label>
+      <input type="number" name="year" id="year" />
+
+      <label for="Electric">Electric:</label>
+      <input type="checkbox" name="isElectric" id="isElectric" />
+
       <button type="submit">Add Car</button>
     </form>
+    <a href="/cars">Back to Cars</a>
   </body>
 </html>

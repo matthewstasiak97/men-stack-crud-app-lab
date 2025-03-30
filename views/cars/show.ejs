@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show</title>
+  </head>
+  <body>
+    <h1><%= car.year %> <%= car.make %> <%= car.model %></h1>
+
+    <p><strong>Make:</strong> <%= car.make %></p>
+    <p><strong>Model:</strong> <%= car.model %></p>
+    <p><strong>Year:</strong> <%= car.year %></p>
+    <p><strong>Electric:</strong> <%= car.isElectric ? 'Yes' : 'No' %></p>
+
+    <a href="/cars/<%= car._id %>/edit">Edit</a>
+
+    <form
+      action="/cars/<%= car._id %>?_method=DELETE"
+      method="POST"
+      style="display: inline"
+    >
+      <button type="submit">Delete</button>
+    </form>
+
+    <br />
+    <a href="/cars">Back to All Cars</a>
+  </body>
+</html>
